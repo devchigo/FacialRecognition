@@ -1,0 +1,21 @@
+<h1>Criminal Form</h1>
+
+<a href="{% url 'criminal_create' %}">Add Criminal</a>
+
+<a href="{% url 'criminal_list' %}">Back</a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    {% for criminal in criminal_list %}
+    <tr>
+        <td>{{criminal.full_name}}</td>
+        <td><a href="{% url 'criminal_detail' criminal.id%}">View</a></td>
+        <td><a href="{% url 'criminal_update' criminal.id%}">Edit</a></td>
+    </tr>
+    {% empty %}
+    <h3>No Citizen in list</h3>
+    {% endfor %}
+</table>
